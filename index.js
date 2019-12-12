@@ -83,29 +83,29 @@ function mountAnylineJS(preset) {
 
   Anyline.onResult = result => {
     console.log('Result: ', result);
-    if (modalOpen) return;
-    // Anyline.stopScanning();
-    window.Swal.fire({
-      title: 'Result',
-      html: `<div class="result">${result.result
-        .map(
-          resultEl =>
-            `
-        <div class="resultRow">
-          <div class="resultLabel">${resultEl.identifier}:</div>
-          <div>${escapeHtml(replaceVerticalBar(resultEl.text)) || 'kA'}</div>
-        </div>`,
-        )
-        .join(' ')}
-      </div>`,
-      showCloseButton: true,
-      onBeforeOpen: () => {
-        modalOpen = true;
-      },
-      onAfterClose: () => {
-        modalOpen = false;
-      },
-    });
+    // if (modalOpen) return;
+    Anyline.stopScanning();
+    // window.Swal.fire({
+    //   title: 'Result',
+    //   html: `<div class="result">${result.result
+    //     .map(
+    //       resultEl =>
+    //         `
+    //     <div class="resultRow">
+    //       <div class="resultLabel">${resultEl.identifier}:</div>
+    //       <div>${escapeHtml(replaceVerticalBar(resultEl.text)) || 'kA'}</div>
+    //     </div>`,
+    //     )
+    //     .join(' ')}
+    //   </div>`,
+    //   showCloseButton: true,
+    //   onBeforeOpen: () => {
+    //     modalOpen = true;
+    //   },
+    //   onAfterClose: () => {
+    //     modalOpen = false;
+    //   },
+    // });
   };
 
   Anyline.onReport = msg => {

@@ -72,7 +72,7 @@ function replaceVerticalBar(string) {
 
 function mountAnylineJS(preset) {
   const Anyline = init({
-    preset: preset.value,
+    preset: 'meter',
     viewConfig,
     license: anylicense,
     element: root,

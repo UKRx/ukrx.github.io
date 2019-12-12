@@ -57,6 +57,10 @@ const Anyline = init({
     anylinePath: '../../anylinejs', // path to the anylinejs folder from your html
 });
 
+Anyline.onResult = result => {
+  console.log('Result: ', result);
+  alert('alert', result.result[0].text)
+
 Anyline.startScanning();
 
 Anyline.onReport = function(report) {

@@ -59,7 +59,7 @@ const Anyline = init({
 
 Anyline.onResult = result => {
   console.log('Result: ', result);
-  alert('alert', result)
+  document.getElementById("meterValue").innerHTML = result;
 };
 
 Anyline.startScanning();

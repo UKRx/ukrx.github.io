@@ -62,7 +62,7 @@ const root = document.getElementById('root');
 // inititalize anylinejs with optional presets
 // presets will override some dimension configuration of your viewConfig and modules in anylinejs config
 const Anyline = init({
-    preset: 'meter',
+    preset: 'ocr',
     viewConfig,
     license: anylicense,
     element: root,
@@ -74,6 +74,7 @@ Anyline.onResult = result => {
   result.result.map(res => {
     document.getElementById("meterValue").innerHTML = escapeHtml(replaceVerticalBar(res.text)) + ' kWh' || 'kWh';
   });
+  window.location.reload(true);
 };
 
 Anyline.startScanning();

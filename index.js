@@ -59,7 +59,7 @@ const Anyline = init({
 
 Anyline.onResult = result => {
   console.log('Result: ', result);
-  alert('alert', result.result[0].text)
+  alert('alert', result)
 };
 
 Anyline.startScanning();

@@ -42,6 +42,18 @@ const viewConfig = {
     ],
 };
 
+function escapeHtml(string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function(s) {
+      return entityMap[s];
+    });
+  }
+  
+function replaceVerticalBar(string) {
+    return String(string).replace(/[|]/g, function(s) {
+      return '\n';
+    });
+ }
+
 const anylicense = 'eyJzY29wZSI6WyJBTEwiXSwicGxhdGZvcm0iOlsiaU9TIiwiQW5kcm9pZCIsIldpbmRvd3MiLCJKUyIsIldlYiJdLCJ2YWxpZCI6IjIwMjAtMDEtMDciLCJtYWpvclZlcnNpb24iOjMsIm1heERheXNOb3RSZXBvcnRlZCI6NSwic2hvd1dhdGVybWFyayI6dHJ1ZSwicGluZ1JlcG9ydGluZyI6dHJ1ZSwiZGVidWdSZXBvcnRpbmciOiJvcHQtb3V0IiwidG9sZXJhbmNlRGF5cyI6NSwic2hvd1BvcFVwQWZ0ZXJFeHBpcnkiOnRydWUsImlvc0lkZW50aWZpZXIiOlsidWtyeC5naXRodWIuaW8iXSwiYW5kcm9pZElkZW50aWZpZXIiOlsidWtyeC5naXRodWIuaW8iXSwid2luZG93c0lkZW50aWZpZXIiOlsidWtyeC5naXRodWIuaW8iXSwid2ViSWRlbnRpZmllciI6WyJ1a3J4LmdpdGh1Yi5pbyJdLCJqc0lkZW50aWZpZXIiOlsidWtyeC5naXRodWIuaW8iXSwiaW1hZ2VSZXBvcnRDYWNoaW5nIjp0cnVlfQoyNXBtL29Kb1JVbHpreDBnT2pRWGovQWozNURTZ3hwaG94WjlteFlnWWJMWWoyOUlmUkxpVE5ocUhqZzZZSG5EYjA4Y3kvbFIwRnd1N0NyWjVPTlp5Y3JQT3hPeG1NekFrdXZUam5NMno4TE4venlyMU01Tlg2MVl5VTlYTWJkZW1mWVNPNVBlMU5qb3p2N3NjZWZ0eTRrNmJpZHpIM3FpR0tEN01yanFGQzh0WEpsSkhlMEVPcE9wL3lnTCtLcWNiWnVObHhvWlhpaGxPZEIyeURQZHlpRlJnVTNmM28rTDMvUE1rSlhOSVhCcmxGZ1ZKaDBHUkZ3K1RqREUrM2xtREJlTVVZcmRHMXd4YzlQNHZoVnh3YkU2b2FON3JjZ1VsbHJ4TG13d1FFQzc4cmI5SS92YU0xUC9ZaVUwMDVjbDQ0eUw3L0t6bTdsRnFEcE1IRUR0VkE9PQ==';
 
 // access the container you want to mount anylinejs into
@@ -59,7 +71,9 @@ const Anyline = init({
 
 Anyline.onResult = result => {
   console.log('Result: ', result);
-  document.getElementById("meterValue").innerHTML = result.result[0];
+  result.result.map(res => {
+    document.getElementById("meterValue").innerHTML = escapeHtml(replaceVerticalBar(res.text)) || 'kA';
+  });
 };
 
 Anyline.startScanning();

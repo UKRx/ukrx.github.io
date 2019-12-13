@@ -72,7 +72,7 @@ const Anyline = init({
 Anyline.onResult = result => {
   console.log('Result: ', result);
   result.result.map(res => {
-    document.getElementById("meterValue").innerHTML = escapeHtml(replaceVerticalBar(res.text)) || 'kA';
+    document.getElementById("meterValue").innerHTML = escapeHtml(replaceVerticalBar(res.text)) + ' kWh' || 'kWh';
   });
 };
 

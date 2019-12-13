@@ -74,7 +74,7 @@ Anyline.onResult = result => {
   result.result.map(res => {
     document.getElementById("meterValue").innerHTML = escapeHtml(replaceVerticalBar(res.text)) + ' kWh' || 'kWh';
   });
-  window.location.reload(true);
+ // window.location.reload(true);
 };
 
 Anyline.startScanning();

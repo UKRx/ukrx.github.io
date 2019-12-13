@@ -60,10 +60,10 @@ const Anyline = init({
 Anyline.onResult = result => {
   console.log('Result: ', result);
   alert('alert', result.result[0].text)
-}
+};
 
 Anyline.startScanning();
 
-Anyline.onReport = function(report) {
+Anyline.onReport = (report) => {
     console.log('Anyline Reports: ', report);
 };

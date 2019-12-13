@@ -62,7 +62,7 @@ const root = document.getElementById('root');
 // inititalize anylinejs with optional presets
 // presets will override some dimension configuration of your viewConfig and modules in anylinejs config
 const Anyline = init({
-    preset: 'ocr',
+    preset: 'meter',
     viewConfig,
     license: anylicense,
     element: root,

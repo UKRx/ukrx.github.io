@@ -69,17 +69,18 @@ const viewConfig = {
 const root = document.getElementById('root');
 let selectedPreset = undefined;
 
+const Anyline = init({
+  config: {},
+  preset: 'meter',
+  viewConfig,
+  license: demoLicense,
+  element: root,
+  debugAnyline: true,
+  anylinePath: '../anylinejs'
+});
+
 function mountAnylineJS(preset) {
   selectedPreset = preset;
-  const Anyline = init({
-    config: {},
-    preset: 'meter',
-    viewConfig,
-    license: demoLicense,
-    element: root,
-    debugAnyline: true,
-    anylinePath: '../anylinejs'
-  });
 
   let modalOpen = false;
 

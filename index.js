@@ -73,7 +73,7 @@ function mountAnylineJS(preset) {
   selectedPreset = preset;
   const Anyline = init({
     config: {},
-    preset: preset.value,
+    preset: 'meter',
     viewConfig,
     license: demoLicense,
     element: root,
@@ -95,7 +95,7 @@ function mountAnylineJS(preset) {
             `
         <div class="resultRow">
           <div class="resultLabel">${resultEl.identifier}:</div>
-          <div>${escapeHtml(replaceVerticalBar(resultEl.text)) || 'kA'}</div>
+          <div>${escapeHtml(replaceVerticalBar(resultEl.text)) || 'kWh'}</div>
         </div>`,
         )
         .join(' ')}
